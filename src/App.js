@@ -12,7 +12,7 @@ import "./App.css";
 class App extends Component {
     state = {
         card,
-        clickedFish: [],
+        clickedCard: [],
         score: 0
     };
 
@@ -25,7 +25,7 @@ class App extends Component {
         //if you click on a card that has already been selected, the game is reset and cards reordered
         if (CardAlreadyClicked) {
             this.setState({
-                card: this.state.fish.sort(function (a, b) {
+                card: this.state.card.sort(function (a, b) {
                     return 0.5 - Math.random();
                 }),
                 clickedCard: [],
@@ -55,7 +55,7 @@ class App extends Component {
                     if (this.state.score === 12) {
                         alert("Yay! You Win!");
                         this.setState({
-                            fish: this.state.Card.sort(function (a, b) {
+                            card: this.state.Card.sort(function (a, b) {
                                 return 0.5 - Math.random();
                             }),
                             clickedCard: [],
@@ -79,7 +79,7 @@ class App extends Component {
         />
         <Jumbotron />
         <div className="wrapper">
-          {this.state.card.map(fish => (
+          {this.state.card.map(card => (
             <FriendCard
               imageClick={this.imageClick}
               id={card.id}
